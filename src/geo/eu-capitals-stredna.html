@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Test: Hlavné mestá Strednej Európy</title>
+  <style>
+    .correct { color: green; margin-left: 10px; }
+    .incorrect { color: red; margin-left: 10px; }
+    form div {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Test: Hlavné mestá Strednej Európy</h2>
+  <form id="quizForm">
+    <div>
+      <label>Slovensko:</label>
+      <input type="text" name="Slovensko">
+      <span id="result-Slovensko"></span>
+    </div>
+    <div>
+      <label>Česko:</label>
+      <input type="text" name="Česko">
+      <span id="result-Česko"></span>
+    </div>
+    <div>
+      <label>Poľsko:</label>
+      <input type="text" name="Poľsko">
+      <span id="result-Poľsko"></span>
+    </div>
+    <div>
+      <label>Maďarsko:</label>
+      <input type="text" name="Maďarsko">
+      <span id="result-Maďarsko"></span>
+    </div>
+    <div>
+      <label>Rakúsko:</label>
+      <input type="text" name="Rakúsko">
+      <span id="result-Rakúsko"></span>
+    </div>
+    <div>
+      <label>Ukrajina:</label>
+      <input type="text" name="Ukrajina">
+      <span id="result-Ukrajina"></span>
+    </div>
+    <button type="button" onclick="checkAnswers()">Skontrolovať</button>
+  </form>
+
+  <br><br>
+  <a href="https://majnik999.github.io/tests/index.html">Naspäť</a>
+
+  <script>
+    const correctAnswers = {
+      "Slovensko": "Bratislava",
+      "Česko": "Praha",
+      "Poľsko": "Varšava",
+      "Maďarsko": "Budapešť",
+      "Rakúsko": "Viedeň",
+      "Ukrajina": "Kyjev"
+    };
+
+    function normalize(text) {
+      return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z]/g, '');
+    }
+
+    function checkAnswers() {
+      for (let country in correctAnswers) {
+        const input = document.querySelector(`input[name="${country}"]`);
+        const resultSpan = document.getElementById(`result-${country}`);
+        const userNormalized = normalize(input.value.trim());
+        const correctNormalized = normalize(correctAnswers[country]);
+
+        if (userNormalized === correctNormalized) {
+          resultSpan.textContent = "správne";
+          resultSpan.className = "correct";
+        } else {
+          resultSpan.textContent = `nesprávne (${correctAnswers[country]})`;
+          resultSpan.className = "incorrect";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
