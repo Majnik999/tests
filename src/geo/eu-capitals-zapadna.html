@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Test - Europa Capitals Západna</title>
+  <style>
+    .correct { color: green; margin-left: 10px; }
+    .incorrect { color: red; margin-left: 10px; }
+    form div {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Test: Hlavné mestá Západnej Európy</h2>
+  <form id="quizForm">
+    <div><label>Belgicko:</label><input type="text" name="Belgicko"><span id="result-Belgicko"></span></div>
+    <div><label>Francúzsko:</label><input type="text" name="Francúzsko"><span id="result-Francúzsko"></span></div>
+    <div><label>Holandsko:</label><input type="text" name="Holandsko"><span id="result-Holandsko"></span></div>
+    <div><label>Írsko:</label><input type="text" name="Írsko"><span id="result-Írsko"></span></div>
+    <div><label>Luxembursko:</label><input type="text" name="Luxembursko"><span id="result-Luxembursko"></span></div>
+    <div><label>Monako:</label><input type="text" name="Monako"><span id="result-Monako"></span></div>
+    <div><label>Spojené kráľovstvo:</label><input type="text" name="Spojené kráľovstvo"><span id="result-Spojené kráľovstvo"></span></div>
+    <button type="button" onclick="checkAnswers()">Skontrolovať</button>
+  </form>
+
+  <br><br>
+  <a href="https://majnik999.github.io/tests/Geo.html">Naspäť</a>
+
+  <script>
+    const correctAnswers = {
+      "Belgicko": "Brusel",
+      "Francúzsko": "Paríž",
+      "Holandsko": "Amsterdam",
+      "Írsko": "Dublin",
+      "Luxembursko": "Luxemburg",
+      "Monako": "Monako",
+      "Spojené kráľovstvo": "Londýn"
+    };
+
+    function normalize(text) {
+      return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z]/g, '');
+    }
+
+    function checkAnswers() {
+      for (let country in correctAnswers) {
+        const input = document.querySelector(`input[name="${country}"]`);
+        const resultSpan = document.getElementById(`result-${country}`);
+        const userNormalized = normalize(input.value.trim());
+        const correctNormalized = normalize(correctAnswers[country]);
+
+        if (userNormalized === correctNormalized) {
+          resultSpan.textContent = "✅ správne";
+          resultSpan.className = "correct";
+        } else {
+          resultSpan.textContent = `❌ nesprávne (správne: ${correctAnswers[country]})`;
+          resultSpan.className = "incorrect";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
