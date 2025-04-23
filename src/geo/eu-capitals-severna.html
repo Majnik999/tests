@@ -85,10 +85,10 @@
         const correctNormalized = normalize(correctAnswers[country]);
 
         if (userNormalized === correctNormalized) {
-          resultSpan.textContent = "✅ správne";
+          resultSpan.textContent = "správne";
           resultSpan.className = "correct";
         } else {
-          resultSpan.textContent = `❌ nesprávne (správne: ${correctAnswers[country]})`;
+          resultSpan.textContent = `nesprávne (${correctAnswers[country]})`;
           resultSpan.className = "incorrect";
         }
       }
