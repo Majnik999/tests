@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Test - Europa Capitals Západna</title>
+  <title>Test - Europa Capitals Severna</title>
   <style>
     .correct { color: green; margin-left: 10px; }
     .incorrect { color: red; margin-left: 10px; }
@@ -12,30 +12,26 @@
   </style>
 </head>
 <body>
-  <h2>Test: Hlavné mestá Západnej Európy</h2>
+  <h2>Test: Hlavné mestá Severnej Európy</h2>
   <form id="quizForm">
-    <div><label>Belgicko:</label><input type="text" name="Belgicko"><span id="result-Belgicko"></span></div>
-    <div><label>Francúzsko:</label><input type="text" name="Francúzsko"><span id="result-Francúzsko"></span></div>
-    <div><label>Holandsko:</label><input type="text" name="Holandsko"><span id="result-Holandsko"></span></div>
-    <div><label>Írsko:</label><input type="text" name="Írsko"><span id="result-Írsko"></span></div>
-    <div><label>Luxembursko:</label><input type="text" name="Luxembursko"><span id="result-Luxembursko"></span></div>
-    <div><label>Monako:</label><input type="text" name="Monako"><span id="result-Monako"></span></div>
-    <div><label>Spojené kráľovstvo:</label><input type="text" name="Spojené kráľovstvo"><span id="result-Spojené kráľovstvo"></span></div>
+    <div>
+      I've <input type="text" name="one"> arrived.
+      <span id="result-one"></span>
+    </div>
+    <div>
+        Have you <input type="text" name="two"> jumped?
+        <span id="result-two"></span>
+      </div>
     <button type="button" onclick="checkAnswers()">Skontrolovať</button>
   </form>
 
   <br><br>
-  <a href="https://majnik999.github.io/tests/Geo.html" style="text-decoration: none; color: black; ">Naspäť</a>
-
+  <a href="https://majnik999.github.io/tests/Geo.html">Naspäť</a>
+  
   <script>
     const correctAnswers = {
-      "Belgicko": "Brusel",
-      "Francúzsko": "Paríž",
-      "Holandsko": "Amsterdam",
-      "Írsko": "Dublin",
-      "Luxembursko": "Luxemburg",
-      "Monako": "Monako",
-      "Spojené kráľovstvo": "Londýn"
+      "one": "just",
+      "two": "ever"
     };
 
     function normalize(text) {
