@@ -2,31 +2,125 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Test - Europa Capitals Stredna</title>
+  <title>Test - Európa Hlavné mestá - Stredná Európa</title>
   <style>
-    .correct { color: green; margin-left: 10px; }
-    .incorrect { color: red; margin-left: 10px; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #eef2f5; /* Svetlomodrá/sivá farba pozadia ako v iných testoch */
+      color: #333;
+      display: flex; /* Flexbox pre centrovanie obsahu */
+      justify-content: center;
+      align-items: flex-start; /* Zarovnáme na začiatok, nie do stredu vertikálne */
+      min-height: 100vh; /* Minimálna výška viewportu */
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto; /* Vertikálne odsadenie a horizontálne centrovanie */
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 35px;
+      font-size: 2.2em;
+      font-weight: 600;
+    }
     form div {
-      margin-bottom: 8px;
+      margin-bottom: 15px; /* Väčší rozostup medzi otázkami */
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+      font-size: 1.1em;
+    }
+    input[type="text"] {
+      width: calc(100% - 150px); /* Upravená šírka pre výsledok */
+      padding: 10px;
+      border: 1px solid #cdd;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 1em;
+    }
+    .correct {
+      color: #28a745; /* Zelená farba */
+      margin-left: 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .incorrect {
+      color: #dc3545; /* Červená farba */
+      margin-left: 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    button {
+      background-color: #007bff; /* Modrá farba tlačidla */
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1em;
+      margin-top: 30px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .score-area { /* Štýl pre zobrazenie skóre */
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+    }
+    .back-link { /* Štýl pre odkaz Naspäť */
+      display: inline-block;
+      margin-top: 40px;
+      padding: 10px 20px;
+      background-color: #6c757d; /* Sivá farba */
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      font-size: 1em;
+    }
+    .back-link:hover {
+      background-color: #5a6268;
     }
   </style>
 </head>
 <body>
-  <h2>Test: Hlavné mestá Strednej Európy</h2>
-  <form id="quizForm">
-    <div><label>Česko:</label><input type="text" name="Česko"><span id="result-Česko"></span></div>
-    <div><label>Lichtenštajnsko:</label><input type="text" name="Lichtenštajnsko"><span id="result-Lichtenštajnsko"></span></div>
-    <div><label>Maďarsko:</label><input type="text" name="Maďarsko"><span id="result-Maďarsko"></span></div>
-    <div><label>Nemecko:</label><input type="text" name="Nemecko"><span id="result-Nemecko"></span></div>
-    <div><label>Poľsko:</label><input type="text" name="Poľsko"><span id="result-Poľsko"></span></div>
-    <div><label>Rakúsko:</label><input type="text" name="Rakúsko"><span id="result-Rakúsko"></span></div>
-    <div><label>Slovensko:</label><input type="text" name="Slovensko"><span id="result-Slovensko"></span></div>
-    <div><label>Švajčiarsko:</label><input type="text" name="Švajčiarsko"><span id="result-Švajčiarsko"></span></div>
-    <button type="button" onclick="checkAnswers()">Skontrolovať</button>
-  </form>
+  <div class="container">
+    <h2>Test: Hlavné mestá Strednej Európy</h2>
+    <form id="quizForm">
+      <div><label>Česko:</label><input type="text" name="Česko"><span id="result-Česko"></span></div>
+      <div><label>Lichtenštajnsko:</label><input type="text" name="Lichtenštajnsko"><span id="result-Lichtenštajnsko"></span></div>
+      <div><label>Maďarsko:</label><input type="text" name="Maďarsko"><span id="result-Maďarsko"></span></div>
+      <div><label>Nemecko:</label><input type="text" name="Nemecko"><span id="result-Nemecko"></span></div>
+      <div><label>Poľsko:</label><input type="text" name="Poľsko"><span id="result-Poľsko"></span></div>
+      <div><label>Rakúsko:</label><input type="text" name="Rakúsko"><span id="result-Rakúsko"></span></div>
+      <div><label>Slovensko:</label><input type="text" name="Slovensko"><span id="result-Slovensko"></span></div>
+      <div><label>Švajčiarsko:</label><input type="text" name="Švajčiarsko"><span id="result-Švajčiarsko"></span></div>
+      <button type="button" onclick="checkAnswers()">Skontrolovať</button>
+      <div id="scoreDisplay" class="score-area" style="display:none;"></div>
+    </form>
 
-  <br><br>
-  <a href="https://majnik999.github.io/tests/Geo.html" style="text-decoration: none; color: black; ">Naspäť</a>
+    <br><br>
+    <a href="../../Geo.html" class="back-link">Naspäť na Geografiu</a>
+  </div>
 
   <script>
     const correctAnswers = {
@@ -40,6 +134,9 @@
       "Švajčiarsko": "Bern"
     };
 
+    let score = 0;
+    const totalQuestions = Object.keys(correctAnswers).length;
+
     function normalize(text) {
       return text
         .toLowerCase()
@@ -49,6 +146,7 @@
     }
 
     function checkAnswers() {
+      score = 0; // Reset score on each check
       for (let country in correctAnswers) {
         const input = document.querySelector(`input[name="${country}"]`);
         const resultSpan = document.getElementById(`result-${country}`);
@@ -58,11 +156,31 @@
         if (userNormalized === correctNormalized) {
           resultSpan.textContent = "správne";
           resultSpan.className = "correct";
+          score++;
         } else {
           resultSpan.textContent = `nesprávne (${correctAnswers[country]})`;
           resultSpan.className = "incorrect";
         }
       }
+      displayScore();
+    }
+
+    function displayScore() {
+      const scoreDisplay = document.getElementById('scoreDisplay');
+      scoreDisplay.style.display = 'block';
+      scoreDisplay.textContent = `Tvoje skóre: ${score} / ${totalQuestions} (${((score / totalQuestions) * 100).toFixed(1)}%)`;
+
+      let message = "";
+      if (score === totalQuestions) {
+        message = "Výborne! Všetko vieš!";
+      } else if (score >= totalQuestions * 0.7) {
+        message = "Veľmi dobre! Skoro dokonalé!";
+      } else if (score >= totalQuestions * 0.5) {
+        message = "Dobre! Alebo sa ešte čo učiť.";
+      } else {
+        message = "Neboj sa, precvičuj ďalej a budeš lepší!";
+      }
+      scoreDisplay.textContent += `\n${message}`;
     }
   </script>
 </body>

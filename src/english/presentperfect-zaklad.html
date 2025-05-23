@@ -2,37 +2,181 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Test - Europa Capitals Severna</title>
+  <title>Test - Angličtina: Present Perfect - Základy</title>
   <style>
-    .correct { color: green; margin-left: 10px; }
-    .incorrect { color: red; margin-left: 10px; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #eef2f5; /* Svetlomodrá/sivá farba pozadia ako v iných testoch */
+      color: #333;
+      display: flex; /* Flexbox pre centrovanie obsahu */
+      justify-content: center;
+      align-items: flex-start; /* Zarovnáme na začiatok, nie do stredu vertikálne */
+      min-height: 100vh; /* Minimálna výška viewportu */
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto; /* Vertikálne odsadenie a horizontálne centrovanie */
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 35px;
+      font-size: 2.2em;
+      font-weight: 600;
+    }
     form div {
-      margin-bottom: 8px;
+      margin-bottom: 15px; /* Väčší rozostup medzi otázkami */
+    }
+    label {
+      display: block; /* Umožní textu otázky a inputu byť na vlastných riadkoch, ak treba */
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+      font-size: 1.1em;
+    }
+    .question-row { /* Nová trieda pre flexibilnejšie rozloženie otázok */
+        display: flex;
+        align-items: center;
+        gap: 5px; /* Priestor medzi slovami a inputom */
+        flex-wrap: wrap; /* Aby sa zalomilo na menších obrazovkách */
+    }
+    .question-row input[type="text"] {
+        flex-grow: 1; /* Input zaberie dostupný priestor */
+        min-width: 80px; /* Minimálna šírka inputu, aby nebol príliš malý */
+        max-width: 150px; /* Maximálna šírka inputu */
+        width: auto; /* Dôležité pre flex-grow */
+        padding: 8px 10px;
+        border: 1px solid #cdd;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 1em;
+    }
+    .correct {
+      color: #28a745; /* Zelená farba */
+      margin-left: 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .incorrect {
+      color: #dc3545; /* Červená farba */
+      margin-left: 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    button {
+      background-color: #007bff; /* Modrá farba tlačidla */
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1em;
+      margin-top: 30px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .score-area { /* Štýl pre zobrazenie skóre */
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+    }
+    .back-link { /* Štýl pre odkaz Naspäť */
+      display: inline-block;
+      margin-top: 40px;
+      padding: 10px 20px;
+      background-color: #6c757d; /* Sivá farba */
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      font-size: 1em;
+    }
+    .back-link:hover {
+      background-color: #5a6268;
     }
   </style>
 </head>
 <body>
-  <h2>Test: Hlavné mestá Severnej Európy</h2>
-  <form id="quizForm">
-    <div>
-      I've <input type="text" name="one"> arrived.
-      <span id="result-one"></span>
-    </div>
-    <div>
-        Have you <input type="text" name="two"> jumped?
-        <span id="result-two"></span>
+  <div class="container">
+    <h2>Test: Present Perfect - Základy</h2>
+    <form id="quizForm">
+      <div>
+        <label>Doplň správne slovo:</label>
+        <div class="question-row">I've <input type="text" name="q1"> arrived.</div>
+        <span id="result-q1"></span>
       </div>
-    <button type="button" onclick="checkAnswers()">Skontrolovať</button>
-  </form>
+      <div>
+        <label>Doplň správne slovo:</label>
+        <div class="question-row">Have you <input type="text" name="q2"> jumped?</div>
+        <span id="result-q2"></span>
+      </div>
+      <div>
+        <label>Doplň pomocné sloveso:</label>
+        <div class="question-row">She <input type="text" name="q3"> never seen snow.</div>
+        <span id="result-q3"></span>
+      </div>
+      <div>
+        <label>Doplň pomocné sloveso:</label>
+        <div class="question-row">They <input type="text" name="q4"> finished their homework.</div>
+        <span id="result-q4"></span>
+      </div>
+      <div>
+        <label>Doplň správny tvar slovesa (been/gone):</label>
+        <div class="question-row">He has <input type="text" name="q5"> to London twice.</div>
+        <span id="result-q5"></span>
+      </div>
+      <div>
+        <label>Doplň správny tvar slovesa (been/gone):</label>
+        <div class="question-row">She's <input type="text" name="q6"> to the shop, she'll be back soon.</div>
+        <span id="result-q6"></span>
+      </div>
+      <div>
+        <label>Doplň (for/since):</label>
+        <div class="question-row">I have lived here <input type="text" name="q7"> 2010.</div>
+        <span id="result-q7"></span>
+      </div>
+      <div>
+        <label>Doplň (for/since):</label>
+        <div class="question-row">They have studied <input type="text" name="q8"> three hours.</div>
+        <span id="result-q8"></span>
+      </div>
+      <button type="button" onclick="checkAnswers()">Skontrolovať</button>
+      <div id="scoreDisplay" class="score-area" style="display:none;"></div>
+    </form>
 
-  <br><br>
-  <a href="https://majnik999.github.io/tests/English.html" style="text-decoration: none; color: black; ">Naspäť</a>
-  
+    <br><br>
+    <a href="../../English.html" class="back-link">Naspäť na Angličtinu</a>
+  </div>
+
   <script>
     const correctAnswers = {
-      "one": "just",
-      "two": "ever"
+      "q1": "just",
+      "q2": "ever",
+      "q3": "has",
+      "q4": "have",
+      "q5": "been",
+      "q6": "gone",
+      "q7": "since",
+      "q8": "for"
     };
+
+    let score = 0;
+    const totalQuestions = Object.keys(correctAnswers).length;
 
     function normalize(text) {
       return text
@@ -43,20 +187,48 @@
     }
 
     function checkAnswers() {
-      for (let country in correctAnswers) {
-        const input = document.querySelector(`input[name="${country}"]`);
-        const resultSpan = document.getElementById(`result-${country}`);
+      score = 0; // Reset score on each check
+      for (let questionKey in correctAnswers) {
+        const input = document.querySelector(`input[name="${questionKey}"]`);
+        const resultSpan = document.getElementById(`result-${questionKey}`);
+        
+        // Ensure input exists before trying to read its value
+        if (!input) {
+            console.warn(`Input with name "${questionKey}" not found.`);
+            continue; // Skip this question if input element is missing
+        }
+
         const userNormalized = normalize(input.value.trim());
-        const correctNormalized = normalize(correctAnswers[country]);
+        const correctNormalized = normalize(correctAnswers[questionKey]);
 
         if (userNormalized === correctNormalized) {
           resultSpan.textContent = "správne";
           resultSpan.className = "correct";
+          score++;
         } else {
-          resultSpan.textContent = `nesprávne (${correctAnswers[country]})`;
+          resultSpan.textContent = `nesprávne (${correctAnswers[questionKey]})`;
           resultSpan.className = "incorrect";
         }
       }
+      displayScore();
+    }
+
+    function displayScore() {
+      const scoreDisplay = document.getElementById('scoreDisplay');
+      scoreDisplay.style.display = 'block';
+      scoreDisplay.textContent = `Tvoje skóre: ${score} / ${totalQuestions} (${((score / totalQuestions) * 100).toFixed(1)}%)`;
+
+      let message = "";
+      if (score === totalQuestions) {
+        message = "Výborne! Si expert na Present Perfect!";
+      } else if (score >= totalQuestions * 0.7) {
+        message = "Veľmi dobre! Skoro dokonalé!";
+      } else if (score >= totalQuestions * 0.5) {
+        message = "Dobre! Alebo sa ešte čo učiť.";
+      } else {
+        message = "Neboj sa, precvičuj ďalej a budeš lepší!";
+      }
+      scoreDisplay.textContent += `\n${message}`;
     }
   </script>
 </body>

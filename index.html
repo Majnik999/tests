@@ -1,23 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="sk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tests - made by Majnik</title>
   <link rel="icon" type="image/x-icon" href="/src/pic.ico">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #eef2f5; /* Svetlomodrá/sivá farba pozadia ako v teste */
+      color: #333;
+      display: flex; /* Použijeme flexbox pre centrovanie obsahu */
+      justify-content: center;
+      align-items: flex-start; /* Zarovnáme na začiatok, nie do stredu vertikálne */
+      min-height: 100vh; /* Minimálna výška viewportu */
+      margin: 0;
+    }
+    .main-container {
+      max-width: 700px; /* Trochu širšie ako test, ale stále obmedzené */
+      margin: 40px auto; /* Vertikálne odsadenie a horizontálne centrovanie */
+      background: #fff;
+      padding: 40px 50px; /* Väčší padding pre pocit priestoru */
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      text-align: center; /* Centrujeme text v kontajneri */
+    }
+    h1 {
+      color: #2c3e50; /* Tmavomodrá farba nadpisu */
+      font-size: 2.8em; /* Väčší nadpis */
+      margin-bottom: 15px; /* Upravený spodný okraj */
+      font-weight: 700; /* Tučnejšie */
+    }
+    .page-description { /* Nový štýl pre popis stránky */
+      font-size: 1.15em;
+      margin-bottom: 25px; /* Odsadenie od nadpisu */
+      color: #555;
+      line-height: 1.5;
+    }
+    .intro-text {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    .Box {
+      background-color: #f8f9fa; /* Svetlejšie pozadie pre box s linkami */
+      border: 1px solid #e9ecef; /* Tenký rámik */
+      border-radius: 8px; /* Zaoblené rohy */
+      padding: 25px 30px; /* Väčší padding */
+      margin-top: 20px;
+      display: inline-block; /* Aby sa box prispôsobil obsahu */
+      text-align: left; /* Text v boxe zarovnáme doľava */
+    }
+    ul {
+      list-style: none; /* Odstránime odrážky */
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      margin-bottom: 12px; /* Rozostupy medzi položkami */
+    }
+    li:last-child {
+      margin-bottom: 0;
+    }
+    .test-link {
+      text-decoration: none;
+      color: #007bff; /* Modrá farba odkazov ako tlačidlá v teste */
+      font-size: 1.3em; /* Väčšie písmo pre odkazy */
+      font-weight: 500;
+      transition: color 0.3s ease, text-decoration 0.3s ease;
+      display: block; /* Aby zaberal celý priestor a bol klikateľný */
+      padding: 5px 0;
+    }
+    .test-link:hover {
+      color: #0056b3; /* Tmavšia modrá pri nabehnutí myšou */
+      text-decoration: underline; /* Podčiarknutie pri nabehnutí */
+    }
+  </style>
 </head>
 <body>
   
-  <h1>Tests</h1>
-  <br><br>
-  Na tejto stránke vieš najsť veľa typov testov vyber si:
-  <br><br>
-  <div class="Box" style="padding: 6px;background-color: lightgray;border-radius: 5px;border-color: gray;">
-  <ul>
-    <li><a href="Geo.html" style="text-decoration: none; color: black; ">Geografia</a></li>
-    <li><a href="Math.html" style="text-decoration: none; color: black; ">Matematika</a></li>
-    <li><a href="English.html" style="text-decoration: none; color: black; ">Angličtina</a></li>
-  </ul>
+  <div class="main-container">
+    <h1>Tests</h1>
+    <p class="page-description">Vitaj na stránke, kde nájdeš interaktívne **testy a cvičenia** z rôznych predmetov. Či už sa chceš precvičiť z **geografie**, **matematiky** alebo **angličtiny**, si na správnom mieste!</p>
+    
+    <p class="intro-text">Vyber si oblasť, v ktorej sa chceš zlepšiť:</p>
+    
+    <div class="Box">
+      <ul>
+        <li><a href="Geo.html" class="test-link">Geografia</a></li>
+        <li><a href="Math.html" class="test-link">Matematika</a></li>
+        <li><a href="English.html" class="test-link">Angličtina</a></li>
+      </ul>
+    </div>
   </div>
+
 </body>
 </html>
