@@ -12,30 +12,37 @@
       padding: 20px;
       background-color: #eef2f5; /* Svetlomodrá/sivá farba pozadia ako v teste */
       color: #333;
-      display: flex; /* Použijeme flexbox pre centrovanie obsahu */
-      justify-content: center;
-      align-items: flex-start; /* Zarovnáme na začiatok, nie do stredu vertikálne */
-      min-height: 100vh; /* Minimálna výška viewportu */
+      display: flex;
+      flex-direction: column; /* Uistíme sa, že položky (boxy) sú pod sebou */
+      justify-content: flex-start; /* Zarovnáme na začiatok vertikálne */
+      align-items: center; /* Centrovanie boxov horizontálne */
+      min-height: 100vh;
       margin: 0;
     }
-    .main-container {
-      max-width: 700px; /* Trochu širšie ako test, ale stále obmedzené */
-      margin: 40px auto; /* Vertikálne odsadenie a horizontálne centrovanie */
+    .section-box { /* Nová trieda pre každý z hlavných kontajnerov */
+      max-width: 700px;
+      width: 100%; /* Zabezpečí, že zaberie dostupnú šírku */
+      margin: 20px 0; /* Vertikálne odsadenie medzi boxami a od vrchu/spodu */
       background: #fff;
-      padding: 40px 50px; /* Väčší padding pre pocit priestoru */
+      padding: 40px 50px;
       border-radius: 12px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      text-align: center; /* Centrujeme text v kontajneri */
+      text-align: center;
+      box-sizing: border-box; /* Aby padding nezväčšoval šírku */
+    }
+    /* Ak chceš naozaj prvému dať iný horný okraj: */
+    .section-box:first-of-type {
+        margin-top: 40px;
     }
     h1 {
-      color: #2c3e50; /* Tmavomodrá farba nadpisu */
-      font-size: 2.8em; /* Väčší nadpis */
-      margin-bottom: 15px; /* Upravený spodný okraj */
-      font-weight: 700; /* Tučnejšie */
+      color: #2c3e50;
+      font-size: 2.8em;
+      margin-bottom: 15px;
+      font-weight: 700;
     }
-    .page-description { /* Nový štýl pre popis stránky */
+    .page-description {
       font-size: 1.15em;
-      margin-bottom: 25px; /* Odsadenie od nadpisu */
+      margin-bottom: 25px;
       color: #555;
       line-height: 1.5;
     }
@@ -44,46 +51,60 @@
       margin-bottom: 30px;
       color: #555;
     }
-    .Box {
-      background-color: #f8f9fa; /* Svetlejšie pozadie pre box s linkami */
-      border: 1px solid #e9ecef; /* Tenký rámik */
-      border-radius: 8px; /* Zaoblené rohy */
-      padding: 25px 30px; /* Väčší padding */
+    .Box { /* Toto je vnútorný box pre zoznam testov, nie hlavná sekcia */
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 25px 30px;
       margin-top: 20px;
       display: inline-block; /* Aby sa box prispôsobil obsahu */
       text-align: left; /* Text v boxe zarovnáme doľava */
     }
     ul {
-      list-style: none; /* Odstránime odrážky */
+      list-style: none;
       padding: 0;
       margin: 0;
     }
     li {
-      margin-bottom: 12px; /* Rozostupy medzi položkami */
+      margin-bottom: 12px;
     }
     li:last-child {
       margin-bottom: 0;
     }
     .test-link {
       text-decoration: none;
-      color: #007bff; /* Modrá farba odkazov ako tlačidlá v teste */
-      font-size: 1.3em; /* Väčšie písmo pre odkazy */
+      color: #007bff;
+      font-size: 1.3em;
       font-weight: 500;
       transition: color 0.3s ease, text-decoration 0.3s ease;
-      display: block; /* Aby zaberal celý priestor a bol klikateľný */
+      display: block;
       padding: 5px 0;
     }
     .test-link:hover {
-      color: #0056b3; /* Tmavšia modrá pri nabehnutí myšou */
-      text-decoration: underline; /* Podčiarknutie pri nabehnutí */
+      color: #0056b3;
+      text-decoration: underline;
+    }
+    #about-text {
+        display: block; /* Zabezpečí, že text bude blokový a zalomí sa */
+        text-align: center;
+        color: #555;
+        font-size: 1.1em;
+        line-height: 1.5;
+    }
+    #about-text a { /* Štýl pre odkaz vo vnútri "O nás" */
+        color: #007bff;
+        text-decoration: underline;
+    }
+    #about-text a:hover {
+        color: #0056b3;
     }
   </style>
 </head>
 <body>
   
-  <div class="main-container">
+  <div class="section-box">
     <h1>Tests</h1>
-    <p class="page-description">Vitaj na stránke, kde nájdeš interaktívne testy a cvičenia z rôznych predmetov. Či už sa chceš precvičiť z geografie, matematiky alebo angličtiny, si na správnom mieste!</p>
+    <p class="page-description">Vitaj na stránke, kde nájdeš interaktívne **testy a cvičenia** z rôznych predmetov. Či už sa chceš precvičiť z **geografie**, **matematiky** alebo **angličtiny**, si na správnom mieste!</p>
     
     <p class="intro-text">Vyber si oblasť, v ktorej sa chceš zlepšiť:</p>
     
@@ -96,10 +117,9 @@
     </div>
   </div>
 
-  <br><br><br>
-  <div class="main-container">
+  <div class="section-box">
     <h1>O nás</h1>
-      <span id="about-text">Ahoj!<br>Vymyslel som túto stránku kvoli tomu, že keď som sa ja sám učil Na testy a na všeliaké skúšky tak som si nevedel najsť vele pokope testov preto som aj spravil túto stránku ktorá ma určite nejaké chyby ale je supre najdeš tu aj všetko podstatné! A ak by si nejake chyby aj našiel formulár najdeš <a href="" style="text-decoration: none; color: black;">tu</a>!</span>
+    <span id="about-text">Ahoj!<br>Vymyslel som túto stránku kvôli tomu, že keď som sa ja sám učil na testy a na všelijaké skúšky, tak som si nevedel nájsť veľa pokope testov, preto som aj spravil túto stránku, ktorá má určite nejaké chyby, ale je super! Nájdeš tu aj všetko podstatné! A ak by si nejaké chyby aj našiel, formulár nájdeš <a href="" target="_blank">tu</a>!</span>
   </div>
 
 </body>
